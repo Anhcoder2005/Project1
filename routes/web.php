@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\User\Auth\LoginController;
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
 
 Route::get('/blog', function () {
     return view('blog/blog');
@@ -23,4 +23,11 @@ Route::get('/blog', function () {
 
 Route::get('/readbook', function () {
     return view('readbooks/readbook');
+});
+
+
+Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
+Route::middleware('auth')->group(function (){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+   
 });
