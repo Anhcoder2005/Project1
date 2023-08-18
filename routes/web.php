@@ -21,13 +21,20 @@ Route::get('/blog', function () {
     return view('blog/blog');
 });
 
-Route::get('/readbook', function () {
-    return view('readbooks/readbook');
-});
+// Route::get('/readbook', function () {
+//     return view('readbooks/readbook');
+// });
 
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
-   
+    Route::get('/readbook', function () {
+        return view('readbooks/readbook');
+    });
+});
+
+
+Route::get('/index', function () {
+    return view('home');
 });
