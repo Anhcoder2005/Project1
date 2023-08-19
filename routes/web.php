@@ -37,4 +37,4 @@ Route::middleware('auth')->group(function (){
 
 Route::get('/index', function () {
     return view('home');
-});
+})->middleware('checklogin::class');
