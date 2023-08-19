@@ -12,6 +12,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         echo 'Xin chào User, '. $user->name;
+        return view('blog/blog');
     }
 
     public function PageReadbook(){
