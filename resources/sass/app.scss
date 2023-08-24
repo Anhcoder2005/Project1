@@ -8,3 +8,34 @@
 @import 'bootstrap/scss/bootstrap';
 
 
+
+
+html,
+body {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.home{
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, rgba(19, 16, 154, 1) , rgba(181, 46, 152, 1));
+}
+
+.home__header{
+    display: flex;
+    height: 60px;
+    color: white;
+    justify-content: space-around;
+    background-color: black;
+    align-items: center;
+}
+
+
+.header__nav{
+    display: flex;
+    color: white;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+

@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        echo 'Xin chào User, '. $user->name;
-        return view('blog/blog');
+        return view('home');
     }
 
     public function PageReadbook(){

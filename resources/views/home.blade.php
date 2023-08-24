@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Project</title>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div class="home">
         <div class="home__header">
-            <div class="header__mylogo">My Project</div>
+            <div class="header__mylogo text-center ">My Project</div>
 
-            <div class="header__nav">
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                    <div class="container-fluid">
-                        <div class="navbar-nav">
-                            <a class="nav-link" href="#">Trang chủ</a>
-                            <a class="nav-link" href="#">Liên Hệ</a>
-                            <a class="nav-link" href="#">Đăng Nhập/ Đăng Ký</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+            <div class="header__nav ">
+                <a class="nav-link mx-3 text-center " href="#">Trang chủ</a>
+                <a class="nav-link mx-3 text-center " href="#">Liên Hệ</a>
+                <a class="nav-link mx-3 text-center " href="#">Đăng Nhập/ Đăng Ký</a>
+            </div> 
         </div>
 
         <div class="home__blog">
@@ -37,7 +32,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 </html>

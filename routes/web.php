@@ -21,9 +21,6 @@ Route::get('/blog', function () {
     return view('blog/blog');
 });
 
-// Route::get('/readbook', function () {
-//     return view('readbooks/readbook');
-// });
 
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
@@ -37,4 +34,4 @@ Route::middleware('auth')->group(function (){
 
 Route::get('/index', function () {
     return view('home');
-})->middleware('checklogin::class');
+})->middleware('checklogin::class')->name('index');

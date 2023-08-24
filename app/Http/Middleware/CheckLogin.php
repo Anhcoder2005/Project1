@@ -17,7 +17,7 @@ class CheckLogin
 
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()&&Auth::user()->email == "user@gmail.com") {
+        if (Auth::check()&&Auth::user()->email == "admin@gmail.com" || "user@gmail.com") {
             return $next($request);
         } else {
             return redirect("/login");
