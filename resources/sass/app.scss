@@ -30,6 +30,11 @@ body {
     align-items: center;
 }
 
+.header__mylogo{
+    font-size: 2rem;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
 
 .header__nav{
     display: flex;
@@ -87,6 +92,8 @@ body {
     cursor: pointer;
     background-color: rgba(248, 234, 233, 0.56);
 }
+
+
 
 
 

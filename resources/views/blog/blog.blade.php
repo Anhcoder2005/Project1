@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project-1</title>
-</head>
-<body>
-    <div class="blog">
-    @include('templates.header')
-    
-    
-        <h1>Blog</h1>
-    
-        
-    
-    
-    @include('templates.footer')
-    </div>
-</body>
-</html>
+@extends('templates.default', ['title'=>'Blog'])
+
+
+
+@section('body')
+<div class="blog__app">
+    <h3>Blog</h3>
+</div>
+@endsection

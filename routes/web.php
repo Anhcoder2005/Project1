@@ -28,10 +28,9 @@ Route::middleware('auth')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/readbook', function () {
         return view('readbooks/readbook');
-    });
+    })->name('readbook');
+    Route::get('/blog', function () {
+        return view('blog/blog');
+    })->name('blog');
 });
 
-
-Route::get('/index', function () {
-    return view('home');
-})->middleware('checklogin::class')->name('index');
