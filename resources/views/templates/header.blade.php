@@ -17,7 +17,7 @@
         <div class="header__nav ">
             <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
             <a class="nav-link mx-3 text-center " href="#">Liên Hệ</a>
-            <a class="nav-link mx-3 text-center " href="#">Đăng Nhập/ Đăng Ký</a>
+            <a class="nav-link mx-3 text-center " href="/login">Đăng Nhập/ Đăng Ký</a>
         </div> 
     </div>
 </body>

@@ -26,11 +26,7 @@ Route::get('/blog', function () {
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/readbook', function () {
-        return view('readbooks/readbook');
-    })->name('readbook');
-    Route::get('/blog', function () {
-        return view('blog/blog');
-    })->name('blog');
+    Route::get('/readbook', [HomeController::class, 'PageReadbook'])->name('readbook');
+    Route::get('/blog', [HomeController::class, 'PageBlog'])->name('blog');
 });
 

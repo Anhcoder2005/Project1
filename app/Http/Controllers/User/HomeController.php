@@ -17,5 +17,7 @@ class HomeController extends Controller
         return view('readbook/readbook');
     }
 
-
+    public function PageBlog(){
+        return view('blog/blog');
+    }
 }
