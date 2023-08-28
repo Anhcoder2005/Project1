@@ -13,11 +13,5 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function PageReadbook(){
-        return view('readbook/readbook');
-    }
 
-    public function PageBlog(){
-        return view('blog/blog');
-    }
 }
