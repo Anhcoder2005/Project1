@@ -21,7 +21,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog/createPost');
     }
 
     /**
