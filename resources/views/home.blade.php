@@ -18,8 +18,7 @@
             <div class="header__nav ">
                 <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
                 <a class="nav-link mx-3 text-center " href="#">Liên Hệ</a>
-                <a class="nav-link header__nav-login" href="/login">Đăng Nhập</a>/
-                <a class="nav-link header__nav-register" href="/register">Đăng Ký</a>
+                <a class="nav-link header__nav-register" href="#">{{$email}}</a>
 
             </div> 
         </div>
