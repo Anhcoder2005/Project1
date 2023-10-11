@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{$title}}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-    <div class="home__header">
-        <div class="header__mylogo text-center ">{{$title}}</div>
-    
-        <div class="header__nav ">
-            <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
-            <a class="nav-link mx-3 text-center " href="#">Liên Hệ</a>
-            <a class="nav-link mx-3 text-center " href="/login">Đăng Nhập/ Đăng Ký</a>
-        </div> 
-    </div>
-</body>
+
+<div class="home__header">
+    <div class="header__mylogo text-center ">{{$title}}</div>
+
+    <div class="header__nav ">
+        <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
+        <a class="nav-link mx-3 text-center " href="#">Liên Hệ</a>
+        
+        @if ($email)
+            <a class="nav-link mx-3 text-center " href="#">{{$email}}</a>
+        @else
+            <a class="nav-link mx-3 text-center " href="/login">Đăng Nhập/</a>
+            <a class="nav-link mx-3 text-center " href="/register">Đăng Ký</a>
+        @endif
+    </div> 
+</div>

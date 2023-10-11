@@ -41,13 +41,18 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-            'driver' => 'token',
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
 
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
+        ],
+        
+        'blog' => [
+            'driver' => 'session',
+            'provider' => 'blogs',
         ],
     ],
 
@@ -76,6 +81,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class, 
+        ],
+
+        'blogs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Blog::class,
         ],
 
         // 'users' => [

@@ -10,10 +10,12 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $email = $request->email;
-        echo $email;
 
-        // return view('home', ['email' => $email]);
+        $user = Auth::user();
+
+        $email = $user->email;
+
+        return view('home', ['email' => $email]);
     }
 
 

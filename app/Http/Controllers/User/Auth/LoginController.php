@@ -19,7 +19,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // echo $request->email;
             // return redirect()->route('home',$request);
-            return view('home', ['email'=>$request->email]);
+            return redirect()->route('home');
         } else {
             return redirect()->back()->withInput();
         }

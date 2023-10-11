@@ -12,7 +12,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="blog">
+    <div class="home">
         @include('templates.header')
     
         @yield('body')

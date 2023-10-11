@@ -14,11 +14,11 @@
 
 
 <div class="post">
-   <form method="POST" action="#">
+   <form method="POST" action="createPost" enctype="multipart/form-data">
    @csrf
          <h1>Create Post</h1>
          <div class="post__title">
-         <input type="text" class="title__input" placeholder="Tiêu đề" name="title">
+         <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required>
      </div>
     
      <div class="post__tools">
@@ -97,7 +97,12 @@
      </div>
     
      <div class="post__content">
-         <textarea rows="16" cols="140" class="content__input" placeholder="Viết nội dung ở đây." name="content"></textarea>  
+         <textarea rows="16" cols="140" class="content__input" placeholder="Viết nội dung ở đây." name="content" required></textarea>  
+     </div>
+
+     <div class="post__photo">
+        <label for="photo">Chọn ảnh:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
      </div>
     
      <div class="post__submit">

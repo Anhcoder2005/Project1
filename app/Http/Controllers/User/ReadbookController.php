@@ -14,7 +14,12 @@ class ReadbookController extends Controller
      */
     public function index(Request $request)
     {
-        return view('readbooks/readbook');
+
+        $user = Auth::user();
+
+        $email = $user->email;
+
+        return view('readbooks/readbook', ['email' => $email]);
 
 
 
