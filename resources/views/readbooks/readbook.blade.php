@@ -1,4 +1,8 @@
-@extends('templates.default', ['title'=>'Readbook'])
+@extends('templates.default', [
+    'title'=>'Home', 
+    'email'=>$email, 
+    'background_default'=>'background_default'
+])
 
 
 

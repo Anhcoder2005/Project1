@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-    
+@extends('templates.default', [
+    'title'=>'Blog', 
+    'email'=>$email, 
+    'background_default'=>''
+])
 
 
-
-
+@section('body')
 <div class="post">
    <form method="POST" action="createPost" enctype="multipart/form-data">
    @csrf
@@ -102,7 +95,7 @@
 
      <div class="post__photo">
         <label for="photo">Chọn ảnh:</label>
-        <input type="file" id="photo" name="photo" accept="image/*" required>
+        <input type="file" id="photo" name="photo" accept="image/*" >
      </div>
     
      <div class="post__submit">
@@ -114,11 +107,7 @@
 
 </div>
 
-
-
-
-</body>
-</html>
+@endsection
 
 
 <script>
@@ -150,8 +139,3 @@
 </script>
 
 
-<!--
-
-
-
- -->

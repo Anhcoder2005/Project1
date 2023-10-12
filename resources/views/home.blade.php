@@ -1,5 +1,5 @@
 
- @extends('templates.default', ['title'=>'Home', 'email'=>$email])
+ @extends('templates.default', ['title'=>'Home', 'email'=>$email, 'background_default'=>'background_default'])
 
  @section('body')
 
@@ -27,10 +27,7 @@
     </div>
 </div>
 
-<!-- {{asset('storage/file.txt');}} -->
-<!-- <img src="{{ asset('storage/images/image.jpg') }}" alt=""> -->
 
-<img src="{{asset('storage/'. $article) }}" alt="" title=""></a>
 
 
 
