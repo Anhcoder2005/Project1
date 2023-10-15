@@ -21,6 +21,8 @@ body {
     // background-image: linear-gradient(to bottom right, rgba(19, 16, 154, 1) , rgba(181, 46, 152, 1));
 }
 
+
+
 .background_default{
     background-image: linear-gradient(to bottom right, rgba(19, 16, 154, 1) , rgba(181, 46, 152, 1));
 }
@@ -212,6 +214,8 @@ $color_grey_dark: #a2a2a2;
         background: $color_white;
         position: relative;
         z-index: 1;
+        width: 885px;
+        height: 178px;
 
         h1,
         h2 {

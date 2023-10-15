@@ -16,7 +16,7 @@
     
      <div class="post__tools">
          <div class="tools-left">
-             <span class="button button-heading" title="Heading">
+             <span id="button-heading" class="button button-heading" title="Heading" onclick="myFunction(this)">
                  <i class="fa-solid fa-heading"></i>
                  <div class="header-list hidden">
                      <ul class="heading-list">
@@ -111,6 +111,9 @@
 
 
 <script>
+    window.onload = function()
+{ 
+
 
     const btn_heading = document.getElementsByClassName("button-heading")
     const btn_bold = document.getElementsByClassName("button-bold")
@@ -127,14 +130,21 @@
     const btn_rotate_left = document.getElementsByClassName("button-rotate-left")
     const btn_rotate_right = document.getElementsByClassName("button-rotate-right")
 
+    const btn = document.querySelector('.button')
+
+    const content = document.querySelector('.content__input')
+
+    const idHeading = document.getElementById('button-heading')
+
+    const arr_btn = [btn_heading, btn_bold, btn_italic, btn_underline, btn_list, btn_quote_left, btn_quote_right, btn_code, btn_table, btn_image, btn_link, btn_clear, btn_rotate_left, btn_rotate_right];
     
-    // Hidden or Show heading
+    // function myFunction(elm){
+    //     console.log(elm.className)
+    // }
 
 
-
-
-
-
+    console.log({elm:content.defaultValue})
+}
 
 </script>
 

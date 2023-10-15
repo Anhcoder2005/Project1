@@ -29,8 +29,6 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/readbook', [ReadbookController::class, 'index'])->name('readbook');
 
-    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-
     Route::group(['prefix'=>'blog'], function(){
         Route::get('/', [BlogController::class, 'index'])->name('blog');
         Route::get('/createPost', [BlogController::class, 'create'])->name('create');

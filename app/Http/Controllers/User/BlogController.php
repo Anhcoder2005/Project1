@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -24,7 +26,11 @@ class BlogController extends Controller
 
         $email = $user->email;
 
-        return view('blog/blog', ['email' => $email]);
+        $post = DB::table('blogs')->select('*');
+        $post = $post->get();
+        $alt = 'alt';
+
+        return view('blog/blog', compact('post', 'email', 'alt'));
     }
 
     /**
@@ -68,7 +74,8 @@ class BlogController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+
     }
 
     /**
@@ -76,7 +83,7 @@ class BlogController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
     }
 
     /**
