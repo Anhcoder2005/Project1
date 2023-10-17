@@ -24,7 +24,7 @@ class RegisterController extends Controller
             $User->password = $request->password;
 
             $User->save();
-            return redirect()->route('home');
+            return redirect()->route('login');
         } else {
             return redirect()->route('register');
         }

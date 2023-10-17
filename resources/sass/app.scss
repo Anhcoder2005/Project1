@@ -25,7 +25,11 @@ body {
 
 
 .background_default{
-    background-image: linear-gradient(to bottom right, rgba(19, 16, 154, 1) , rgba(181, 46, 152, 1));
+    // background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    // background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    // background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    // background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background-image: linear-gradient(to bottom right, rgba(18, 16, 154, 0.911) , rgba(181, 46, 152, 0.938));
 }
 
 .home__header{
@@ -33,7 +37,8 @@ body {
     height: 60px;
     color: white;
     justify-content: space-around;
-    background-color: black;
+    // background-color: rgba(25, 24, 24, 0.9);
+    background-color: #1e1a29;
     align-items: center;
 }
 
@@ -372,6 +377,7 @@ $color_grey_dark: #a2a2a2;
     outline: none;
     padding-left: 10px;
     font-weight: 500;
+    text-transform: capitalize;
 }
 
 .post-create__tools{
