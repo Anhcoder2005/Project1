@@ -13,12 +13,11 @@
 </head>
 <body>
 
-    @if($title == 'Blog')
+    @if($title == 'Blog' or $title == 'Post')
     <div class="home {{ $background_default }}" style="height: 100%;">
         @include('templates.header')
     
         @yield('body')
-    
     
         @include('templates.footer')
     </div>

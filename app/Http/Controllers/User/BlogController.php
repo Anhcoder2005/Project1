@@ -28,9 +28,8 @@ class BlogController extends Controller
 
         $post = DB::table('blogs')->select('*');
         $post = $post->get();
-        $alt = 'alt';
 
-        return view('blog/blog', compact('post', 'email', 'alt'));
+        return view('blog/blog', compact('post', 'email'));
     }
 
     /**
@@ -38,18 +37,24 @@ class BlogController extends Controller
      */
     public function create(Request $request)
     {
-
+        
         if ($request->getMethod() == 'POST') {
+            
             // handle photo
+            $fileimage = time().'.'.$request->image->extension();
+            $request->image->storeAs('public/images', $fileimage);
+
+
             $Post = new Blog;
             $Post->authorBlog = Auth::user()->name;
             $Post->releaseDateBlog = now();
             $Post->titleBlog = $request->title; 
             $Post->postBlog = $request->content;
-            $Post->photoBlog = $request->photo;
+            $Post->photoBlog = $fileimage;
             $Post->save();
 
-            return redirect()->route('home');
+            
+            return redirect()->route('blog');
         }
 
         if ($request->getMethod() == 'GET'){
@@ -61,20 +66,16 @@ class BlogController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        
-        
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        
+        $post = DB::table('blogs')->where('id', $id);
+        $post = $post->get();
+        $user = Auth::user();
+        $email = $user->email;
+
+        return view('blog/post', compact('email', 'post'));
 
     }
 
