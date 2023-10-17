@@ -31,8 +31,11 @@ Route::middleware('auth')->group(function (){
 
     Route::group(['prefix'=>'blog'], function(){
         Route::get('/', [BlogController::class, 'index'])->name('blog');
+        //Create Post
         Route::get('/createPost', [BlogController::class, 'create'])->name('create');
         Route::post('/createPost', [BlogController::class, 'create'])->name('create');
+        //Show Post
+        Route::get('/show/{id}', [BlogController::class, 'show'])->name('show');
     });
     
 

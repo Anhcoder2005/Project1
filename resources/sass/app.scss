@@ -5,7 +5,8 @@
 @import 'variables';
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// @import 'bootstrap/scss/bootstrap';
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 
 
@@ -216,7 +217,6 @@ $color_grey_dark: #a2a2a2;
         z-index: 1;
         width: 885px;
         height: 178px;
-
         h1,
         h2 {
             font-family: Poppins, sans-serif;
@@ -234,6 +234,32 @@ $color_grey_dark: #a2a2a2;
             text-transform: uppercase;
             color: $color_grey_dark;
             margin-top: 5px;
+        }
+
+        .title{
+            padding-bottom: 15px;
+            text-transform: capitalize;
+            font-size: 1.4rem;
+            font-weight: 400;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            -webkit-line-clamp: 2;
+            line-height: 1.6rem;
+        }
+
+        .content{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            -webkit-line-clamp: 2;
+            line-height: 1.4rem;
+            margin-top: 0;
+            padding-top: 10px;
         }
 
         .read-more {
@@ -333,7 +359,7 @@ $color_grey_dark: #a2a2a2;
 
 // Creat Post
 
-.post{
+.post-create{
     padding-left: 24px;
     background-color: #fff;
 }
@@ -348,7 +374,7 @@ $color_grey_dark: #a2a2a2;
     font-weight: 500;
 }
 
-.post__tools{
+.post-create__tools{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -434,7 +460,7 @@ $color_grey_dark: #a2a2a2;
     text-transform: capitalize;
 }
 
-.post__submit{
+.post-create__submit{
     display: flex;
     justify-content: flex-end;
     padding-right: 18px;
@@ -493,3 +519,34 @@ $color_grey_dark: #a2a2a2;
     margin-right: 188px;
 }
 
+
+
+// POST
+
+.Post{
+    background: none;
+    padding: 20px 184px 0px;
+}
+
+.post__content{
+    display: block;
+    height: 100%;
+}
+
+
+
+.post__content--textarea{
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    border: none;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    overflow: hidden;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    background: transparent;
+    -webkit-box-shadow: none;
+    line-height: normal;
+}

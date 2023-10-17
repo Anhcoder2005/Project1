@@ -1,20 +1,20 @@
 @extends('templates.default', [
-    'title'=>'Blog', 
+    'title'=>'Create Blog', 
     'email'=>$email, 
     'background_default'=>''
 ])
 
 
 @section('body')
-<div class="post">
+<div class="post-create">
    <form method="POST" action="createPost" enctype="multipart/form-data">
    @csrf
          <h1>Create Post</h1>
-         <div class="post__title">
-         <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required>
+         <div class="post-create__title">
+         <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required maxlength="80">
      </div>
     
-     <div class="post__tools">
+     <div class="post-create__tools">
          <div class="tools-left">
              <span id="button-heading" class="button button-heading" title="Heading" onclick="myFunction(this)">
                  <i class="fa-solid fa-heading"></i>
@@ -89,16 +89,16 @@
     
      </div>
     
-     <div class="post__content">
+     <div class="post-create__content">
          <textarea rows="16" cols="140" class="content__input" placeholder="Viết nội dung ở đây." name="content" required></textarea>  
      </div>
 
-     <div class="post__photo">
+     <div class="post-create__photo">
         <label for="photo">Chọn ảnh:</label>
-        <input type="file" id="photo" name="photo" accept="image/*" >
+        <input type="file" id="image" name="image" accept="image/*" required>
      </div>
     
-     <div class="post__submit">
+     <div class="post-create__submit">
          <input type="submit" value="Đăng" class="submit__input">
      </div>
     
