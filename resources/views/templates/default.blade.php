@@ -14,7 +14,7 @@
 <body>
 
     @if($title == 'Blog' or $title == 'Post')
-    <div class="home {{ $background_default }}" style="height: 100%;">
+    <div class="home {{ $background_default }}">
         @include('templates.header')
     
         @yield('body')

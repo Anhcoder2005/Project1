@@ -30,12 +30,15 @@ Route::middleware('auth')->group(function (){
     Route::get('/readbook', [ReadbookController::class, 'index'])->name('readbook');
 
     Route::group(['prefix'=>'blog'], function(){
+        //Index
         Route::get('/', [BlogController::class, 'index'])->name('blog');
         //Create Post
         Route::get('/createPost', [BlogController::class, 'create'])->name('create');
         Route::post('/createPost', [BlogController::class, 'create'])->name('create');
         //Show Post
         Route::get('/show/{id}', [BlogController::class, 'show'])->name('show');
+        // Show my article
+        Route::get('/myArticle', [BlogController::class, 'myArticle'])->name('myArticle');
     });
     
 
