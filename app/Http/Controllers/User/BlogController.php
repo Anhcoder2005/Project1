@@ -79,6 +79,18 @@ class BlogController extends Controller
 
     }
 
+    public function myArticle(Request $request)
+    {
+        $user = Auth::user();
+        $name = $user->name;
+        $email = $user->email;
+        $post = DB::table('blogs')->where('authorBlog', $name)->get();
+        
+
+
+        return view('blog/myArticle', compact('email', 'post'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

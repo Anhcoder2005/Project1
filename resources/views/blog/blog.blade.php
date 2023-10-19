@@ -15,7 +15,7 @@
         <div class="taskbar__list">
             <ul class="taskbar__list--ul">
                 <li class="taskbar__list--li"><a href="{{ route('create') }}">Viết Blog</a></li>
-                <li class="taskbar__list--li">Bài Viết Của Tôi</li>
+                <li class="taskbar__list--li"><a href="{{ route('myArticle') }}">Bài Viết Của Tôi</a></li>
             </ul>
         </div>
 

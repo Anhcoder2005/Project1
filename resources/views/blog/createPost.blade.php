@@ -90,7 +90,7 @@
      </div>
     
      <div class="post-create__content">
-         <textarea rows="16" cols="140" class="content__input" placeholder="Viết nội dung ở đây." name="content" required></textarea>  
+         <textarea rows="12" cols="140" class="content__input" placeholder="Viết nội dung ở đây." name="content" required></textarea>  
      </div>
 
      <div class="post-create__photo">

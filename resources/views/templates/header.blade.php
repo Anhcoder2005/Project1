@@ -4,8 +4,8 @@
 
     <div class="header__nav ">
        
-        
-        @if ($title == "Create Blog" or $title == "Post")
+        <!-- With Blog -->
+        @if ($title == "Create Blog" or $title == "Post" or $title == "My Article")
         <a class="nav-link mx-3 text-center " href="/blog">Blog</a>
         @else
         <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
