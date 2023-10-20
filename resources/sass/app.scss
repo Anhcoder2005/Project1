@@ -41,6 +41,10 @@ body {
     justify-content: space-around;
     background-color: #1e1a29;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 .header__mylogo{
@@ -59,7 +63,7 @@ body {
 
 .home__card{
     display: flex;
-    margin-top: 140px;
+    padding-top: 200px;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -368,6 +372,7 @@ $color_grey_dark: #a2a2a2;
 .post-create{
     padding-left: 24px;
     background-color: #fff;
+    padding-top: 60px;
 }
 
 .title__input{
@@ -496,11 +501,15 @@ $color_grey_dark: #a2a2a2;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    padding-top: 60px;
 }
 
 .app__taskbar{
     margin-right: 10px;
     margin-left: -80px;
+    position: fixed;
+    left: 0;
+    padding-left: 80px;
 }
 
 .taskbar__list{
@@ -529,7 +538,7 @@ $color_grey_dark: #a2a2a2;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-right: 188px;
+    padding-left: 28px;
 }
 
 
@@ -539,23 +548,24 @@ $color_grey_dark: #a2a2a2;
 .Post{
     background: none;
     padding: 20px 184px 0px;
+    padding-top: 60px;
+    height:auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .post__content{
-    display: block;
-    height: 100%;
+    height: 100vh;
 }
 
 
 
 .post__content--textarea{
     width: 100%;
-    min-height: 100vh;
-    height: auto;
+    height: 100%;
     border: none;
     resize: none;
     outline: none;
-    overflow: auto;
     overflow: hidden;
     box-shadow: none;
     -moz-box-shadow: none;
@@ -572,6 +582,7 @@ $color_grey_dark: #a2a2a2;
     height: 100%;
     display: flex;
     justify-content: center;
+    padding-top: 60px;
 }
 
 
@@ -579,8 +590,13 @@ $color_grey_dark: #a2a2a2;
     width: 1000px;
     border: 1px solid #d6dee3;  
     margin-top: 20px;
-    height: 600px;
 }
+
+.table--title{
+    width: 240px;
+}
+
+
 
 
 

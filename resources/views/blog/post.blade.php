@@ -20,10 +20,9 @@
 
 
     <div class="post__content">
-        <textarea readonly class="post__content--textarea" >{{$postBlog}}</textarea>
+        <textarea id="post__content" readonly class="post__content--textarea" >{{$postBlog}}</textarea>
     </div>
-
-
 </div>
 
 @endsection
+
