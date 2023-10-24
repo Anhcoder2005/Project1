@@ -27,11 +27,17 @@ body {
 
 
 .background_default{
+    background-image: linear-gradient(to bottom right, #0100EC, #FB36F4);
+    // background: #ff00cc;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // ckground: linear-gradient(to right, #373b44, #4286f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // background: #9053c7;
     // background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
     // background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
     // background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-    // background: linear-gradient(-135deg, #c850c0, #4158d0);
-    background-image: linear-gradient(to bottom right, rgba(18, 16, 154, 0.911) , rgba(181, 46, 152, 0.938));
+    // background: linear-gradient(-145deg, #c850c0, #4158d0);
+    // background-image: linear-gradient(to bottom right, rgba(21, 19, 175, 0.911) , rgba(181, 46, 152, 0.938));
 }
 
 .home__header{
@@ -495,6 +501,25 @@ $color_grey_dark: #a2a2a2;
     width: 380px;
 }
 
+.post-create__photo label {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+}
+
+
+.post-img-edit{
+    height: 50px;
+    width: 50px;
+}
+
+.post-edit__photo{
+    width: 100%;
+}
+
+.post-edit__photo--lable{
+    display: flex;
+}
 
 // TaskBar Blog 
 .blog__app{
@@ -578,6 +603,10 @@ $color_grey_dark: #a2a2a2;
 
 // My Article
 
+.table{
+    margin-bottom: 0;
+}
+
 .my-article{
     height: 100%;
     display: flex;
@@ -595,6 +624,13 @@ $color_grey_dark: #a2a2a2;
 .table--title{
     width: 240px;
 }
+
+.table-btn{
+    border: 1px solid #4b4d4e; 
+    border-radius: 5px;
+}
+
+
 
 
 
