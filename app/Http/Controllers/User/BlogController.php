@@ -61,7 +61,7 @@ class BlogController extends Controller
             $user = Auth::user();
             $email = $user->email;
 
-            return view('blog/createPost', ['email' => $email]);
+            return view('blog/createPost', ['email' => $email,  'edit' => 'flase']);
         }
     }
 
@@ -94,9 +94,19 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
-        
+
+        if ($request->getMethod() == 'GET'){
+            $user = Auth::user();
+            $email = $user->email;
+
+            $post = DB::table('blogs')->where('id', $id);
+            $post = $post->get();
+
+            
+            return view('blog/createPost', ['post' => $post, 'email' => $email, 'edit' => 'true']);
+        }
     }
 
     /**
@@ -104,7 +114,19 @@ class BlogController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $Post = Blog::find($id);
+        if(($request->image)){
+            $fileimage = time().'.'.$request->image->extension();
+            $request->image->storeAs('public/images', $fileimage);
+        }else{
+            $fileimage = $Post->photoBlog;
+        }
+        $Post->titleBlog = $request->title; 
+        $Post->postBlog = $request->content;
+        $Post->photoBlog = $fileimage;
+        $Post->save();
+
+        return redirect()->route('myArticle');
     }
 
     /**
@@ -112,7 +134,10 @@ class BlogController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Post = Blog::find($id);
+
+        $Post->delete();
+        return redirect()->route('myArticle');
     }
 
     protected function storeImage(Request $request) {

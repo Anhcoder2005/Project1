@@ -39,6 +39,13 @@ Route::middleware('auth')->group(function (){
         Route::get('/show/{id}', [BlogController::class, 'show'])->name('show');
         // Show my article
         Route::get('/myArticle', [BlogController::class, 'myArticle'])->name('myArticle');
+        // Edit Post
+        Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('edit');
+        // Update Post 
+        Route::patch('/update/{id}', [BlogController::class, 'update'])->name('update');
+        // Delete Post
+        Route::delete('/delete/{id}', [BlogController::class, 'destroy'])->name('delete');
+
     });
     
 

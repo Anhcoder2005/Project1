@@ -2,6 +2,7 @@
     'title'=>'Blog', 
     'email'=> $email, 
     'background_default'=>'background_default',
+    'edit' => 'false'
 ])
 
 
