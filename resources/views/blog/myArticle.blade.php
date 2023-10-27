@@ -15,9 +15,6 @@
     <div class="my-article__header">
 
     </div>
-
-
-
     <div class="my-article__dashboad">
         <table class="table table-striped table-hover">
             <thead>

@@ -105,7 +105,7 @@ class BlogController extends Controller
             $post = $post->get();
 
             
-            return view('blog/createPost', ['post' => $post, 'email' => $email, 'edit' => 'true']);
+            return view('blog/editPost', ['post' => $post, 'email' => $email]);
         }
     }
 
