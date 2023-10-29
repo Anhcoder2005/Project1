@@ -8,7 +8,9 @@
 // @import 'bootstrap/scss/bootstrap';
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+@import "@mantine/tiptap/styles.css";
 
+@import  '../../node_modules/quill/dist/quill.snow.css';
 
 
 html,
@@ -477,10 +479,18 @@ $color_grey_dark: #a2a2a2;
     text-transform: capitalize;
 }
 
+.post-create__footer{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
 .post-create__submit{
     display: flex;
     justify-content: flex-end;
     padding-right: 24px;
+    align-items: center;
 }
 
 .submit__input{
@@ -496,8 +506,7 @@ $color_grey_dark: #a2a2a2;
 }
 
 .post-create__photo{
-    display: flex;
-    width: 380px;
+    padding-top: 40px;
 }
 
 .post-create__photo label {
@@ -522,21 +531,16 @@ $color_grey_dark: #a2a2a2;
 
 .post-create__content{
     display: flex;
-}
-
-.content__input{
-    border-right: 1px solid rgb(208, 205, 205);
-}
-
-.post-create__preview{
-    width: 100%;
+    flex-direction: column;
     height: 400px;
-    overflow: auto;
-    font-size: 1.2rem;
-    padding-left: 8px;
-    padding-top: 32px;
-    line-break:inherit;
+    width: 100%;
+    padding-right: 20px;
+    
 }
+
+
+
+
 
 // TaskBar Blog 
 .blog__app{

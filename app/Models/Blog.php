@@ -15,7 +15,7 @@ class Blog extends Model
     protected $guarded = 'blog';
 
     protected $fillable = [
-        'authorBlog', 'releaseDateBlog', 'titleBlog', 'postBlog','photoBlog',
+        'authorBlog', 'releaseDateBlog', 'titleBlog', 'postBlog', 'htmlBlog', 'photoBlog',
     ];
 
     protected $hidden = [
