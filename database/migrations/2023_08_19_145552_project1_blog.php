@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('authorBlog');
             $table->string('releaseDateBlog');
             $table->string('postBlog');
+            $table->string('htmlBlog');
             $table->string('photoBlog');
             $table->rememberToken();
             $table->timestamps();

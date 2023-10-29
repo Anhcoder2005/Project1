@@ -44,12 +44,13 @@ class BlogController extends Controller
             $fileimage = time().'.'.$request->image->extension();
             $request->image->storeAs('public/images', $fileimage);
 
-
+            // echo dd($request);
             $Post = new Blog;
             $Post->authorBlog = Auth::user()->name;
             $Post->releaseDateBlog = now();
             $Post->titleBlog = $request->title; 
-            $Post->postBlog = $request->content;
+            $Post->postBlog = $request->contentPost;
+            $Post->htmlBlog = $request->dataPost;
             $Post->photoBlog = $fileimage;
             $Post->save();
 
@@ -114,16 +115,30 @@ class BlogController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd($request);
         $Post = Blog::find($id);
-        if(($request->image)){
+        if(($request->image) ){
             $fileimage = time().'.'.$request->image->extension();
             $request->image->storeAs('public/images', $fileimage);
         }else{
             $fileimage = $Post->photoBlog;
         }
+
+        if(($request->dataPost) and ($request->contentPost)){
+            $data = $request->dataPost;
+            $content = $request->contentPost;
+        }else{
+            $content = $Post->postBlog;
+            $data = $Post->htmlBlog ;
+            
+        }
+        
         $Post->titleBlog = $request->title; 
-        $Post->postBlog = $request->content;
+        $Post->postBlog = $content;
+        $Post->htmlBlog = $data;
         $Post->photoBlog = $fileimage;
+        
+        // dd($Post);
         $Post->save();
 
         return redirect()->route('myArticle');

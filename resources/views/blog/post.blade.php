@@ -20,9 +20,14 @@
 
 
     <div class="post__content">
-        <textarea id="post__content" readonly class="post__content--textarea" >{{$postBlog}}</textarea>
+        {!! $post[0]->htmlBlog !!}
     </div>
 </div>
+
+<script>
+    const content = document.getElementsByClassName('post__content')
+    console.log(content)
+</script>
 
 @endsection
 
