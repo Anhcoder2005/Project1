@@ -138,7 +138,6 @@ class BlogController extends Controller
         $Post->htmlBlog = $data;
         $Post->photoBlog = $fileimage;
         
-        // dd($Post);
         $Post->save();
 
         return redirect()->route('myArticle');
