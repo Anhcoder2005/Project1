@@ -26,8 +26,8 @@ class BlogController extends Controller
 
         $email = $user->email;
 
-        $post = DB::table('blogs')->select('*');
-        $post = $post->get();
+        $post = DB::table('blogs')->select('*')->simplePaginate(5);
+        // $post = $post->get();
 
         return view('blog/blog', compact('post', 'email'));
     }
@@ -85,11 +85,12 @@ class BlogController extends Controller
         $user = Auth::user();
         $name = $user->name;
         $email = $user->email;
-        $post = DB::table('blogs')->where('authorBlog', $name)->get();
+
+        $sort = Blog::sortable()
+                    ->where('authorBlog', $name)
+                    ->paginate(10);
         
-
-
-        return view('blog/myArticle', compact('email', 'post'));
+        return view('blog/myArticle', compact('email', 'sort'));
     }
 
     /**
@@ -149,8 +150,8 @@ class BlogController extends Controller
     public function destroy(string $id)
     {
         $Post = Blog::find($id);
-
         $Post->delete();
+
         return redirect()->route('myArticle');
     }
 

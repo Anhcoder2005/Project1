@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use OpenAI\Laravel\Facades\OpenAI;
+use Kyslik\ColumnSortable\Sortable;
+
+
 
 class ReadbookController extends Controller
 {
@@ -14,10 +18,15 @@ class ReadbookController extends Controller
      */
     public function index(Request $request)
     {
-
+        // require 'vendor/autoload.php';
         $user = Auth::user();
-
         $email = $user->email;
+
+        
+        
+
+
+        
 
         return view('readbooks/readbook', ['email' => $email]);
 

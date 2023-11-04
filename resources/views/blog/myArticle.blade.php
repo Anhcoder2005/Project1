@@ -8,7 +8,8 @@
 @section('body')
 
 @php
-    $i = 1
+
+    
 @endphp
 
 <div class="my-article">
@@ -16,21 +17,22 @@
 
     </div>
     <div class="my-article__dashboad">
-        <table class="table table-striped table-hover">
+        <table  class="table table-striped table-hover" cellspacing="0">
             <thead>
                 <tr>
-                    <th scope="col">STT</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tiêu Đề</th>
-                    <th scope="col">Nội dung</th>
-                    <th scope="col">Ngày Đăng</th>
+                    <th scope="col">@sortablelink('id')</th>
+                    <th scope="col">@sortablelink('titleBlog') </th>
+                    <th scope="col">@sortablelink('postBlog')</th>
+                    <th scope="col">@sortablelink('releaseDateBlog')</th>
                     <th scope="col">Ảnh</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($post as $item)
+
+                @foreach($sort as $item)
                 <tr>
-                    <th scope="row">{{$i++}}</th>
                     <td class="table--id">{{$item->id}}</td>
                     <td class="table--title">{{$item->titleBlog}}</td>
                     <td class="table--content">{{$item->postBlog}}</td>
@@ -48,16 +50,26 @@
                     </td>
                 </tr>
                 @endforeach
+
             </tbody>
         </table>
+        
+    </div>
+    
+    <div class="my-article__dashboad--pagition">
+        {{  $sort->links() }}
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
 <script>
-    $(".table--title").each(function(){if ($(this).text().length > 20) {$(this).text($(this).text().substr(0, 20));$(this).append('...');}});
-    $(".table--content").each(function(){if ($(this).text().length > 45) {$(this).text($(this).text().substr(0, 45));$(this).append('...');}});
+    $(".table--title").each(function(){if ($(this).text().length > 30) {$(this).text($(this).text().substr(0, 30));$(this).append('...');}});
+    $(".table--content").each(function(){if ($(this).text().length > 55) {$(this).text($(this).text().substr(0, 55));$(this).append('...');}});
+
+
+    // Sort
 
 </script>
 

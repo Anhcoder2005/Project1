@@ -65,9 +65,9 @@
                     </div>
                 </div>
             @endif
-    
         @endforeach
-
+        
+        {{  $post->links() }}
     </div>
 
 
