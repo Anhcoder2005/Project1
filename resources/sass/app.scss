@@ -603,23 +603,50 @@ $color_grey_dark: #a2a2a2;
     display: flex;
     justify-content: center;
     padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .my-article__dashboad{
-    width: 1000px;
+    width: 1200px;
     border: 1px solid #d6dee3;  
     margin-top: 20px;
 }
 
 .table--title{
-    width: 240px;
+    width: 260px;
 }
 
 .table-btn{
     border: 1px solid #4b4d4e; 
     border-radius: 5px;
 }
+
+.my-article__dashboad--pagition{
+    padding-top: 20px;
+}
+
+.table th a {
+    text-decoration: none;
+    color: black;
+}
+
+.table th a:hover {
+    color: rgb(3, 64, 218);
+}
+
+.table td a button:hover,
+.table td a:hover{
+    color: #0100EC;
+    box-shadow: 3px 4px #999898;
+    border: 1px solid #4b4d4e;
+    
+}
+
+
+
+
 
 
 
