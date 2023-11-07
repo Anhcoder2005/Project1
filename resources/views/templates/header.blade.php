@@ -6,12 +6,12 @@
        
         <!-- With Blog -->
         @if ($title == "Create Blog" or $title == "Post" or $title == "My Article" or $title == "Edit Blog")
-        <a class="nav-link mx-3 text-center " href="/blog">Blog</a>
+            <a class="nav-link mx-3 text-center " href="/blog">Blog</a>
         @else
-        <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
+            <a class="nav-link mx-3 text-center " href="/">Trang Chủ</a>
         @endif
         
-        <a class="nav-link mx-3 text-center " href="#">Liên Hệ</a>
+        <a class="nav-link mx-3 text-center " href="#footer">Liên Hệ</a>
 
         @if ($email)
             <a class="nav-link mx-3 text-center " href="#">{{$email}}</a>

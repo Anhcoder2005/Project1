@@ -17,24 +17,31 @@
 <body>
 
     @if($title == 'Blog' or $title == 'Post')
-    <div class="home {{ $background_default }}">
-        @include('templates.header')
-    
-        @yield('body')
-    
-        @include('templates.footer')
-    </div>
-    @else
+        <div class="home {{ $background_default }}">
+            @include('templates.header')
+        
+            @yield('body')
+        
+            @include('templates.footer')
+        </div>
 
-    <div class="home {{ $background_default }}">
-        @include('templates.header')
-    
-        @yield('body')
-    
-    
-        @include('templates.footer')
-    </div>
+    @elseif ($title == 'Home')
+        <div class="home {{ $background_default }}">
+            @include('templates.header')
+        
+            @yield('body')
+        </div>
+    @else
+        <div class="home {{ $background_default }}">
+            @include('templates.header')
+        
+            @yield('body')
+        
+        
+            @include('templates.footer')
+        </div>
 
     @endif
+
 </body>
 </html>
