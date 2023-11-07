@@ -26,7 +26,7 @@ class BlogController extends Controller
 
         $email = $user->email;
 
-        $post = DB::table('blogs')->select('*')->simplePaginate(5);
+        $post = DB::table('blogs')->select('*')->paginate(5);
         // $post = $post->get();
 
         return view('blog/blog', compact('post', 'email'));
