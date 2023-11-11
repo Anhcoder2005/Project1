@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Feedback;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -20,16 +21,20 @@ class BlogController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
 
         $email = $user->email;
 
-        $post = DB::table('blogs')->select('*')->paginate(5);
-        // $post = $post->get();
+        $post = DB::table('blogs')->select('*')->paginate(10);
+        // $post = $post->get(); 
+        $name = $user->name;
 
-        return view('blog/blog', compact('post', 'email'));
+        // echo dd($request);
+
+
+        return view('blog/blog', compact('email', 'post', 'name'));
     }
 
     /**
@@ -46,7 +51,7 @@ class BlogController extends Controller
 
             // echo dd($request);
             $Post = new Blog;
-            $Post->authorBlog = Auth::user()->name;
+            $Post->name = Auth::user()->name;
             $Post->releaseDateBlog = now();
             $Post->titleBlog = $request->title; 
             $Post->postBlog = $request->contentPost;
@@ -75,8 +80,9 @@ class BlogController extends Controller
         $post = $post->get();
         $user = Auth::user();
         $email = $user->email;
+        $name = $user->name;
 
-        return view('blog/post', compact('email', 'post'));
+        return view('blog/post', compact('email', 'post', 'name'));
 
     }
 
@@ -87,7 +93,7 @@ class BlogController extends Controller
         $email = $user->email;
 
         $sort = Blog::sortable()
-                    ->where('authorBlog', $name)
+                    ->where('name', $name)
                     ->paginate(10);
         
         return view('blog/myArticle', compact('email', 'sort'));
@@ -158,5 +164,26 @@ class BlogController extends Controller
     protected function storeImage(Request $request) {
         $path = $request->file('photo')->store('public/storage/profile');
         return substr($path, strlen('public/storage'));
+    }
+
+    public function personalPage(string $email)
+    {
+        return view('blog/user');
+    }
+
+    //FeedBack User
+    public function feedback(Request $request){
+        if ($request->getMethod() == 'POST') {
+            $feedback = new Feedback ;
+            $feedback->email = $request->email;
+            $feedback->name = $request->name;
+            $feedback->numPhone = $request->numPhone;
+            $feedback->message = $request->message;
+            $feedback->save();
+
+            
+
+            return redirect()->route('blog');
+        }
     }
 }

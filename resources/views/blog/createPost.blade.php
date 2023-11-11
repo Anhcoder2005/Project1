@@ -11,7 +11,7 @@
         @csrf
         <h1>Create Post</h1>
         <div class="post-create__title">
-            <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required maxlength="80">
+            <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required maxlength="255">
         </div>
 
         <div class="post-create__content">

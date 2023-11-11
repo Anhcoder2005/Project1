@@ -7,6 +7,7 @@
     
 @section('body')
 @vite(['resources/sass/post.scss'])
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
 @php 
     
@@ -23,7 +24,7 @@
             <h1> <strong>{{$post[0]->titleBlog}}</strong> </h1>
             <div class="post__info">
                 <i class="fa-solid fa-user"></i>
-                {{$post[0]->authorBlog}}
+                {{$post[0]->name}}
                 <i class="fa-solid fa-calendar-days"></i>
                 {{$post[0]->created_at}}
             </div>
@@ -49,10 +50,4 @@
     </div>
     
 </div>
-
-
-<script>
-    const content = document.getElementsByClassName('post__content')
-</script>
-
 @endsection
