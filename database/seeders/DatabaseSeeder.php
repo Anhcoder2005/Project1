@@ -22,21 +22,21 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // DB::table('admins')->insert([
-        //     [
-        //         'name' => 'Admin',
-        //         'email' => 'admin@gmail.com',
-        //         'password' => bcrypt('admin123'),
-        //     ]
-        // ]);
+        DB::table('admins')->insert([
+            [
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin123'),
+            ]
+        ]);
 
-        // DB::table('users')->insert([
-        //     [
-        //         'name' => 'User',
-        //         'email' => 'user@gmail.com',
-        //         'password' => bcrypt('admin123'),
-        //     ]
-        // ]);
+        DB::table('users')->insert([
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'password' => bcrypt('admin123'),
+            ]
+        ]);
 
         // DB::table('blogs')->insert([
         //     'authorBlog' => Str::random(10),

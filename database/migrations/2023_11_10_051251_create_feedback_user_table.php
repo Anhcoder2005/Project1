@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('feedback_user', function (Blueprint $table) {
             $table->id();
-            $table->string('nameBook');
-            $table->string('authorBook');
-            $table->dateTime('releaseDateBook');
-            $table->text('descriptionBook');
-            $table->text('viewBook');
-            $table->rememberToken();
+            $table->string('email')->unique();
+            $table->string('name');
+            $table->string('numPhone');
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('feedback_user');
     }
 };
