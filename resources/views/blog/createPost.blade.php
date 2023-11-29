@@ -1,6 +1,5 @@
 @extends('templates.default', [
 'title'=>'Create Blog',
-'email'=>$email,
 'background_default'=>''
 ])
 

@@ -19,7 +19,7 @@ class RegisterController extends Controller
         
         if ($request->getMethod() == 'POST') {
             $User = new User;
-            $User->name = $request->name; 
+            $User->user_name = $request->name; 
             $User->email = $request->email;
             $User->password = $request->password;
 

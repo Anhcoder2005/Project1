@@ -1,5 +1,5 @@
 
- @extends('templates.default', ['title'=>'Home', 'email'=>$email, 'background_default'=>'background_default'])
+ @extends('templates.default', ['title'=>'Home', 'background_default'=>'background_default'])
 
  @section('body')
 
@@ -26,6 +26,9 @@
         </a>
     </div>
 </div>
+
+
+
 
 
 

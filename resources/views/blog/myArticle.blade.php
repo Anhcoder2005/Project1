@@ -1,17 +1,17 @@
 @extends('templates.default', [
 'title'=>'My Article',
-'email'=>$email,
 'background_default'=>''
 ])
 
 
 @section('body')
 
-
-@php
-
+<?php 
+    $emailGetCookie = $_COOKIE["email"] ;
     
-@endphp
+?>
+
+@include('templates.navbar')
 
 <div class="my-article">
     <div class="my-article__header">
@@ -35,10 +35,10 @@
                 @foreach($sort as $item)
                 <tr>
                     <td class="table--id">{{$item->id}}</td>
-                    <td class="table--title">{{$item->titleBlog}}</td>
-                    <td class="table--content">{{$item->postBlog}}</td>
-                    <td class="table--date">{{$item->releaseDateBlog}}</td>
-                    <td class="table--image">{{$item->photoBlog}}</td>@csrf
+                    <td class="table--title">{{$item->title}}</td>
+                    <td class="table--content">{{$item->body}}</td>
+                    <td class="table--date">{{$item->create_date}}</td>
+                    <td class="table--image">{{$item->image}}</td>@csrf
                     <td class="table--edit"><a href="/blog/edit/{{$item->id}}" class="btn btn-sm table-btn table-edit-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
                     <td class="table--trash">
                         <a href="/blog/delete/{{$item->id}}" class="table-trash-btn">
