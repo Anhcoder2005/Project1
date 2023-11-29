@@ -1,6 +1,5 @@
 @extends('templates.default', [
     'title'=>'Post', 
-    'email'=>$email, 
     'background_default'=>''
     ])
     
@@ -11,34 +10,28 @@
     
 @php 
     
-    $postBlog = $post[0]->postBlog;
-    $url = asset('storage/images/'.$post[0]->photoBlog);
+    $url = asset('storage/images/'.$post[0]->image);
 @endphp
 
 <div class="Post">
 
 
     <div class="post__body">
-
         <div class="post__title">
-            <h1> <strong>{{$post[0]->titleBlog}}</strong> </h1>
+            <h1> <strong>{{$post[0]->title}}</strong> </h1>
             <div class="post__info">
                 <i class="fa-solid fa-user"></i>
-                {{$post[0]->name}}
+                {{$post[0]->user_name}}
                 <i class="fa-solid fa-calendar-days"></i>
                 {{$post[0]->created_at}}
             </div>
         </div>
-    
-        
-    
-    
         <div class="post__content">
             <div class="post__content--image">
                 <img src="{{$url}}" alt="">
             </div>
             <div class="post__content--wrapper">
-                {!! $post[0]->htmlBlog !!}
+                {!! $post[0]->htmlbody !!}
             </div>
         </div>
     </div>

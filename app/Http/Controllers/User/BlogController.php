@@ -19,8 +19,6 @@ class BlogController extends Controller
      * Display a listing of the resource.
      */
 
-
-
     public function index(Request $request)
     {
         $user = Auth::user();
@@ -29,8 +27,8 @@ class BlogController extends Controller
 
         $post = DB::table('blogs')->select('*')->paginate(10);
         // $post = $post->get(); 
-        $name = $user->name;
-
+        $name = $user->user_name;
+        
         // echo dd($request);
 
 
@@ -49,14 +47,20 @@ class BlogController extends Controller
             $fileimage = time().'.'.$request->image->extension();
             $request->image->storeAs('public/images', $fileimage);
 
+            // $image = $request->file('image');
+            // $imageName = $image->getClientOriginalName();
+            // Storage::disk('s3')->put('images/' . $imageName, file_get_contents($image));
+
             // echo dd($request);
             $Post = new Blog;
-            $Post->name = Auth::user()->name;
-            $Post->releaseDateBlog = now();
-            $Post->titleBlog = $request->title; 
-            $Post->postBlog = $request->contentPost;
-            $Post->htmlBlog = $request->dataPost;
-            $Post->photoBlog = $fileimage;
+            $Post->user_name = Auth::user()->user_name;
+            $Post->user_id = Auth::user()->id;
+            $Post->create_date = now();
+            $Post->slug = $request->title;
+            $Post->title = $request->title; 
+            $Post->body = $request->contentPost;
+            $Post->htmlbody = $request->dataPost;
+            $Post->image = $fileimage;
             $Post->save();
 
             
@@ -64,11 +68,9 @@ class BlogController extends Controller
         }
 
         if ($request->getMethod() == 'GET'){
-            $user = Auth::user();
-            $email = $user->email;
 
-            return view('blog/createPost', ['email' => $email,  'edit' => 'flase']);
-        }
+            return view('blog/createPost', ['edit' => 'flase']);
+        }   
     }
 
     /**
@@ -80,23 +82,22 @@ class BlogController extends Controller
         $post = $post->get();
         $user = Auth::user();
         $email = $user->email;
-        $name = $user->name;
+        $name = $user->user_name;
 
-        return view('blog/post', compact('email', 'post', 'name'));
-
+        return view('blog/post', compact('post'));
     }
 
     public function myArticle(Request $request)
     {
         $user = Auth::user();
-        $name = $user->name;
+        $name = $user->user_name;
         $email = $user->email;
 
         $sort = Blog::sortable()
-                    ->where('name', $name)
+                    ->where('user_name', $name)
                     ->paginate(10);
         
-        return view('blog/myArticle', compact('email', 'sort'));
+        return view('blog/myArticle', compact('sort'));
     }
 
     /**
@@ -113,7 +114,7 @@ class BlogController extends Controller
             $post = $post->get();
 
             
-            return view('blog/editPost', ['post' => $post, 'email' => $email]);
+            return view('blog/editPost', ['post' => $post]);
         }
     }
 
@@ -124,26 +125,29 @@ class BlogController extends Controller
     {
         // dd($request);
         $Post = Blog::find($id);
-        if(($request->image) ){
+        if(($request->image)){
             $fileimage = time().'.'.$request->image->extension();
             $request->image->storeAs('public/images', $fileimage);
         }else{
-            $fileimage = $Post->photoBlog;
+            $fileimage = $Post->image;
         }
 
         if(($request->dataPost) and ($request->contentPost)){
             $data = $request->dataPost;
             $content = $request->contentPost;
         }else{
-            $content = $Post->postBlog;
-            $data = $Post->htmlBlog ;
+            $content = $Post->body;
+            $data = $Post->htmlbody ;
             
         }
         
-        $Post->titleBlog = $request->title; 
-        $Post->postBlog = $content;
-        $Post->htmlBlog = $data;
-        $Post->photoBlog = $fileimage;
+        $Post->title = $request->title; 
+        $Post->body = $content;
+        $Post->htmlbody = $data;
+        $Post->image = $fileimage;
+        $Post->slug = $request->title;
+        $Post->title = $request->title; 
+        $Post->create_date = now();
         
         $Post->save();
 
@@ -166,17 +170,14 @@ class BlogController extends Controller
         return substr($path, strlen('public/storage'));
     }
 
-    public function personalPage(string $email)
-    {
-        return view('blog/user');
-    }
+    
 
     //FeedBack User
     public function feedback(Request $request){
         if ($request->getMethod() == 'POST') {
             $feedback = new Feedback ;
             $feedback->email = $request->email;
-            $feedback->name = $request->name;
+            $feedback->user_name = $request->name;
             $feedback->numPhone = $request->numPhone;
             $feedback->message = $request->message;
             $feedback->save();

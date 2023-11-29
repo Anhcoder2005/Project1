@@ -1,20 +1,24 @@
 @extends('templates.default', [
 'title'=>'Edit Blog',
-'email'=>$email,
 'background_default'=>''
 ])
 
 
 @section('body')
 
-<?php $url = asset('storage/images/' . $post[0]->photoBlog); ?>
+<?php 
+    $emailGetCookie = $_COOKIE["email"] ;
+    
+?>
+
+<?php $url = asset('storage/images/' . $post[0]->image); ?>
 <div class="post-create">
     <form method="POST" action="/blog/update/{{$post[0]->id}}" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
         <h1>Edit Post</h1>
         <div class="post-create__title">
-            <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required maxlength="255" value="{{$post[0]->titleBlog}}">
+            <input type="text" class="title__input" placeholder="Tiêu đề" name="title" required maxlength="255" value="{{$post[0]->title}}">
         </div>
         <div class="post-create__content">
             <div id="toolbar">
@@ -22,7 +26,7 @@
 
             <!-- Create the editor container -->
             <div id="editor">
-                {!! $post[0]->htmlBlog !!}
+                {!! $post[0]->htmlbody !!}
             </div>
         </div>
         <input type="hidden" name="contentPost" class="contentPost">

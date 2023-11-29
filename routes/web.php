@@ -24,9 +24,13 @@ Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name
 Route::match(['get', 'post'], '/register', [RegisterController::class, 'register'])->name('register');
 
 
+
 Route::middleware('auth')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
-
+    
+    //page User
+    Route::get('user/{email}', [HomeController::class, 'personalPage'])->name('user');
+    Route::patch('user/{email}', [HomeController::class, 'personalPage'])->name('updateUser');
 
     Route::group(['prefix'=>'blog'], function(){
         //Index
@@ -44,14 +48,14 @@ Route::middleware('auth')->group(function (){
         Route::patch('/update/{id}', [BlogController::class, 'update'])->name('update');
         // Delete Post
         Route::delete('/delete/{id}', [BlogController::class, 'destroy'])->name('delete');
-        // Page user
-
+        
+        
         //Feedback
         Route::get('/feedback', [BlogController::class, 'feedback'])->name('feedback');
         Route::post('/feedback', [BlogController::class, 'feedback'])->name('feedback');
 
     });
-
+    
     Route::group(['prefix'=>'readbook'], function(){
         Route::get('/', [ReadbookController::class, 'index'])->name('readbook');
     });

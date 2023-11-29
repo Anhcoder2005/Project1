@@ -1,16 +1,19 @@
 @extends('templates.default', [
 'title'=>'Blog',
-'email'=> $email,
 'background_default'=>'background_default',
 'edit' => 'false',
-'name' => $name
 ])
 
 
 
-
-
 @section('body')
+
+<?php 
+    $email = $_COOKIE["email"] ;
+    
+?>
+
+
 
 <div class="blog__app">
 
@@ -21,7 +24,7 @@
             <li>
                 <a href="/">
                     <i class="fa-solid fa-house"></i>
-                    <span>Dashboard</span>
+                    <span>Home</span>
                 </a>
             </li>
             <li>
@@ -53,25 +56,25 @@
         
 
     </nav>  
-        
+
+    
+   
 
     <div class="app__post-card">
-
-
         @foreach($post as $item)
-        <?php $url = asset('storage/images/' . $item->photoBlog); ?>
+        <?php $url = asset('storage/images/' . $item->image); ?>
         @if ($item->id % 2 != 0)
         <div class="blog-card alt">
             <div class="meta">
                 <div class="photo" style="background-image: url({{$url}})"></div>
                 <ul class="details">
-                    <li class="author"><a href="#">{{$item->name}}</a></li>
-                    <li class="date">{{$item->releaseDateBlog}}</li>
+                    <li class="author"><a href="#">{{$item->user_name}}</a></li>
+                    <li class="date">{{$item->create_date}}</li>
                 </ul>
             </div>
             <div class="description">
-                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->id}}">{{$item->titleBlog}}</a></h1>
-                <p class="content"> {{$item->postBlog}}</p>
+                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->id}}">{{$item->title}}</a></h1>
+                <p class="content"> {{$item->body}}</p>
                 <p class="read-more">
                     <a href="/blog/show/{{$item->id}}">Read More</a>
                 </p>
@@ -83,13 +86,13 @@
             <div class="meta">
                 <div class="photo" style="background-image: url({{$url}})"></div>
                 <ul class="details">
-                    <li class="author"><a href="#">{{$item->name}}</a></li>
-                    <li class="date">{{$item->releaseDateBlog}}</li>
+                    <li class="author"><a href="#">{{$item->user_name}}</a></li>
+                    <li class="date">{{$item->create_date}}</li>
                 </ul>
             </div>
             <div class="description">
-                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->id}}">{{$item->titleBlog}}</a></h1>
-                <p class="content"> {{$item->postBlog}}</p>
+                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->id}}">{{$item->title}}</a></h1>
+                <p class="content"> {{$item->body}}</p>
                 <p class="read-more">
                     <a href="/blog/show/{{$item->id}}">Read More</a>
                 </p>
@@ -102,7 +105,7 @@
         </div>
     </div>
 
-    <?php $url = asset('storage/images/' . $post[0]->photoBlog); ?>
+    <?php $url = asset('storage/images/' . $post[0]->image); ?>
     <div class="app__sidebar container">
         <h4 class="app__sidebar--details">ĐỌC NHIỀU 24H QUA</h4>
         <div class="app__sidebar--item--main">
@@ -110,10 +113,10 @@
                 <div class="">
                     <img src="{{$url}}" alt="">
                 </div>
-                <h4 class="sidebar__title">{{$post[0]->titleBlog}}</h4>
+                <h4 class="sidebar__title">{{$post[0]->title}}</h4>
             </a>
         </div>
-        @for ($i = 0; $i < 4; $i++) <?php $url = asset('storage/images/' . $post[$i]->photoBlog) ?> 
+        @for ($i = 0; $i < 4; $i++) <?php $url = asset('storage/images/' . $post[$i]->image) ?> 
         <div class="app__sidebar--item">
             <a href="/blog/show/{{$post[$i]->id}}">
                 <div class="item__img">
@@ -121,11 +124,11 @@
                 </div>
             </a>
             <h4 >
-                <a class="sidebar__title" href="/blog/show/{{$post[$i]->id}}">{{$post[$i]->titleBlog}}</a>
+                <a class="sidebar__title" href="/blog/show/{{$post[$i]->id}}">{{$post[$i]->title}}</a>
             </h4>
     </div>
     @endfor
-
+    
 
 </div>
 

@@ -20,10 +20,10 @@ class Blog extends Model
     protected $guarded = 'blog';
 
     protected $fillable = [
-        'name', 'releaseDateBlog', 'titleBlog', 'postBlog', 'htmlBlog', 'photoBlog',
+        'user_name', 'create_date', 'title', 'body', 'htmlbody', 'image',
     ];
 
     protected $hidden = [
-        'remember_token', 'created_at', 'updated_at'
+        'created_at', 'updated_at'
     ];
 }
