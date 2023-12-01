@@ -9,8 +9,7 @@ use App\Models\Blog;
 use App\Models\Feedback;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-
-
+use Behat\Transliterator\Transliterator;
 
 
 class BlogController extends Controller
@@ -44,26 +43,35 @@ class BlogController extends Controller
         if ($request->getMethod() == 'POST') {
             
             // handle photo
-            $fileimage = time().'.'.$request->image->extension();
-            $request->image->storeAs('public/images', $fileimage);
+            // $fileimage = time().'.'.$request->image->extension();
+            // $request->image->storeAs('public/images', $fileimage);
 
-            // $image = $request->file('image');
-            // $imageName = $image->getClientOriginalName();
-            // Storage::disk('s3')->put('images/' . $imageName, file_get_contents($image));
+            // Lưu hình ảnh
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+
+            // Edit slug
+            $text = $request->title;
+            $urlizer = new Urlizer();
+            $slug = $urlizer->transliterate($text, "-");
+            
 
             // echo dd($request);
             $Post = new Blog;
             $Post->user_name = Auth::user()->user_name;
             $Post->user_id = Auth::user()->id;
             $Post->create_date = now();
-            $Post->slug = $request->title;
+            $Post->slug = $slug;
             $Post->title = $request->title; 
             $Post->body = $request->contentPost;
             $Post->htmlbody = $request->dataPost;
-            $Post->image = $fileimage;
+            $Post->image = $imageName;
+            
             $Post->save();
 
             
+            // return view('readbooks/readbook', ['imageName' => $imageName, 'email' => $email]) ;
             return redirect()->route('blog');
         }
 
@@ -126,10 +134,13 @@ class BlogController extends Controller
         // dd($request);
         $Post = Blog::find($id);
         if(($request->image)){
-            $fileimage = time().'.'.$request->image->extension();
-            $request->image->storeAs('public/images', $fileimage);
+            // $fileimage = time().'.'.$request->image->extension();
+            // $request->image->storeAs('public/images', $fileimage);
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
         }else{
-            $fileimage = $Post->image;
+            $imageName = $Post->image;
         }
 
         if(($request->dataPost) and ($request->contentPost)){
@@ -140,12 +151,17 @@ class BlogController extends Controller
             $data = $Post->htmlbody ;
             
         }
+
+        $text = $request->title;
+        $urlizer = new Urlizer();
+        $slug = $urlizer->transliterate($text, "-");
+        
         
         $Post->title = $request->title; 
         $Post->body = $content;
         $Post->htmlbody = $data;
-        $Post->image = $fileimage;
-        $Post->slug = $request->title;
+        $Post->image = $imageName;
+        $Post->slug = $slug;
         $Post->title = $request->title; 
         $Post->create_date = now();
         
@@ -188,3 +204,7 @@ class BlogController extends Controller
         }
     }
 }
+
+class Urlizer extends Transliterator
+        {
+        }

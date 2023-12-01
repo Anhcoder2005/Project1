@@ -10,11 +10,11 @@
     
 @php 
     
-    $url = asset('storage/images/'.$post[0]->image);
+    $url = asset('images/'.$post[0]->image);
 @endphp
 
 <div class="Post">
-
+@include('templates.navbar') 
 
     <div class="post__body">
         <div class="post__title">

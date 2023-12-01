@@ -52,7 +52,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 ">Gender</div>
-                            <div class="col-8 ">: {{$user->gender}}</div>
+                            <div class="col-8 ">: {{($user->gender)?"Nam":"Nữ"}}</div>
                         </div>
                         <div class="row">
                             <div class="col-4 ">Birthday</div>
