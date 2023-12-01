@@ -69,7 +69,7 @@
 <script>
     $(".table--title").each(function(){if ($(this).text().length > 30) {$(this).text($(this).text().substr(0, 30));$(this).append('...');}});
     $(".table--content").each(function(){if ($(this).text().length > 55) {$(this).text($(this).text().substr(0, 55));$(this).append('...');}});
-
+    $(".table--image").each(function(){if ($(this).text().length > 20) {$(this).text($(this).text().substr(0, 20));$(this).append('...');}});
 
     // Sort
 

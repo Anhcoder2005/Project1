@@ -62,7 +62,7 @@
 
     <div class="app__post-card">
         @foreach($post as $item)
-        <?php $url = asset('storage/images/' . $item->image); ?>
+        <?php  $url = asset('images/' . $item->image); ?>
         @if ($item->id % 2 != 0)
         <div class="blog-card alt">
             <div class="meta">
@@ -105,7 +105,9 @@
         </div>
     </div>
 
-    <?php $url = asset('storage/images/' . $post[0]->image); ?>
+    <?php //$url = asset('storage/images/' . $post[0]->image); 
+        $url = asset('images/' . $post[0]->image);
+    ?>
     <div class="app__sidebar container">
         <h4 class="app__sidebar--details">ĐỌC NHIỀU 24H QUA</h4>
         <div class="app__sidebar--item--main">
@@ -116,7 +118,7 @@
                 <h4 class="sidebar__title">{{$post[0]->title}}</h4>
             </a>
         </div>
-        @for ($i = 0; $i < 4; $i++) <?php $url = asset('storage/images/' . $post[$i]->image) ?> 
+        @for ($i = 0; $i < 4; $i++) <?php $url = asset('images/' . $post[$i]->image); ?> 
         <div class="app__sidebar--item">
             <a href="/blog/show/{{$post[$i]->id}}">
                 <div class="item__img">
