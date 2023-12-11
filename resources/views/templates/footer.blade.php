@@ -10,7 +10,6 @@
                         <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
                         <ul class="list-unstyled">
                             <li><a href="/">Home</a></li>
-                            <li><a href="/readbook">Books</a></li>
                             <li><a href="#">Blog</a></li>
                         </ul>
                     </div>

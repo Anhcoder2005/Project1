@@ -84,9 +84,9 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        $post = DB::table('blogs')->where('id', $id);
+        $post = DB::table('blogs')->where('slug', $slug);
         $post = $post->get();
         $user = Auth::user();
         $email = $user->email;
@@ -200,7 +200,7 @@ class BlogController extends Controller
 
             
 
-            return redirect()->route('blog');
+            return redirect()->back();
         }
     }
 }

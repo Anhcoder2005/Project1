@@ -5,6 +5,10 @@
 
 
 @section('body')
+
+@include('templates.navbar')
+
+
 <div class="post-create">
     <form id="form" method="POST" action="createPost" enctype="multipart/form-data">
         @csrf

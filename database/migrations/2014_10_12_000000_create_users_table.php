@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email', 255)->unique();
             $table->boolean('gender');
             $table->date('birthday');
-            $table->integer('phone', 100);
+            $table->bigInteger('phone', 100);
             $table->string('country', 255);
             $table->string('password', 255);
             $table->rememberToken();
