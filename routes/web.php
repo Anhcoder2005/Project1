@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function (){
         Route::get('/createPost', [BlogController::class, 'create'])->name('create');
         Route::post('/createPost', [BlogController::class, 'create'])->name('create');
         //Show Post
-        Route::get('/show/{id}', [BlogController::class, 'show'])->name('show');
+        Route::get('/show/{slug}', [BlogController::class, 'show'])->name('show');
         // Show my article
         Route::get('/myArticle', [BlogController::class, 'myArticle'])->name('myArticle');
         // Edit Post
@@ -56,9 +56,9 @@ Route::middleware('auth')->group(function (){
 
     });
     
-    Route::group(['prefix'=>'readbook'], function(){
-        Route::get('/', [ReadbookController::class, 'index'])->name('readbook');
-    });
+    // Route::group(['prefix'=>'readbook'], function(){
+    //     Route::get('/', [ReadbookController::class, 'index'])->name('readbook');
+    // });
     
 
 });

@@ -11,6 +11,8 @@
     
 ?>
 
+@include('templates.navbar')
+
 <?php $url = asset('images/' . $post[0]->image); ?>
 <div class="post-create">
     <form method="POST" action="/blog/update/{{$post[0]->id}}" enctype="multipart/form-data">

@@ -7,6 +7,9 @@
 
 
 @section('body')
+@include('templates.navbar')
+
+
 <div class="readbook__app">
 
 </div>

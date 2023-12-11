@@ -29,14 +29,15 @@ class HomeController extends Controller
         
         
         if ($request->getMethod() == 'PATCH') {
-            $user = DB::table('users')->where('email', $email)
-                                    ->update(['first_name'=>$request->first_name,
-                                                'last_name' => $request->last_name,
-                                                'gender' => $request->gender,
-                                                'birthday' => $request->birthday,
-                                                'phone' => $request->phone,
-                                                'country' => $request->country,
-                                            ]);
+            $user = DB::table('users')  ->where('email', $email)
+                                        ->update([  
+                                                    'first_name'=>$request->first_name,
+                                                    'last_name' => $request->last_name,
+                                                    'gender' => $request->gender,
+                                                    'birthday' => $request->birthday,
+                                                    'phone' => $request->phone,
+                                                    'country' => $request->country,
+                                                ]);
             $user = Auth::user();                                 
             return view('blog/user', ['user' => $user]);
         }

@@ -5,7 +5,7 @@
 
  
 <div class="home__card">
-    <div class="home__blog card__magin--left">
+    <div class="home__blog">
         <a class="blog__link nav-link" href="/blog">
             <div class="card card__general card__hover--blog" >
                 <div class="card-body card__blog">
@@ -15,7 +15,7 @@
             </div>
         </a>
     </div>
-    <div class="home__readbook card__magin--right">
+    <!-- <div class="home__readbook card__magin--right">
         <a class="readbook__link nav-link" href="/readbook">
             <div class="card card__general card__hover--readbook" >
                 <div class="card-body card__readbook">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div> -->
 </div>
 
 

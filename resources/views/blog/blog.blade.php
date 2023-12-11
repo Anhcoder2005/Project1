@@ -27,12 +27,12 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="/readbook">
                     <i class="fa-solid fa-book-open"></i>
                     <span>Books</span>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a href="{{ route('create') }}">
                     <i class="fa-solid fa-circle-plus"></i>
@@ -73,10 +73,10 @@
                 </ul>
             </div>
             <div class="description">
-                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->id}}">{{$item->title}}</a></h1>
+                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->slug}}">{{$item->title}}</a></h1>
                 <p class="content"> {{$item->body}}</p>
                 <p class="read-more">
-                    <a href="/blog/show/{{$item->id}}">Read More</a>
+                    <a href="/blog/show/{{$item->slug}}">Read More</a>
                 </p>
             </div>
         </div>
@@ -91,10 +91,10 @@
                 </ul>
             </div>
             <div class="description">
-                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->id}}">{{$item->title}}</a></h1>
+                <h1 class="title blog-card__title"><a href="/blog/show/{{$item->slug}}">{{$item->title}}</a></h1>
                 <p class="content"> {{$item->body}}</p>
                 <p class="read-more">
-                    <a href="/blog/show/{{$item->id}}">Read More</a>
+                    <a href="/blog/show/{{$item->slug}}">Read More</a>
                 </p>
             </div>
         </div>
@@ -105,13 +105,13 @@
         </div>
     </div>
 
-    <?php //$url = asset('storage/images/' . $post[0]->image); 
+    <?php 
         $url = asset('images/' . $post[0]->image);
     ?>
     <div class="app__sidebar container">
         <h4 class="app__sidebar--details">ĐỌC NHIỀU 24H QUA</h4>
         <div class="app__sidebar--item--main">
-            <a href="/blog/show/{{$post[0]->id}}">
+            <a href="/blog/show/{{$post[0]->slug}}">
                 <div class="">
                     <img src="{{$url}}" alt="">
                 </div>
@@ -120,13 +120,13 @@
         </div>
         @for ($i = 0; $i < 4; $i++) <?php $url = asset('images/' . $post[$i]->image); ?> 
         <div class="app__sidebar--item">
-            <a href="/blog/show/{{$post[$i]->id}}">
+            <a href="/blog/show/{{$post[$i]->slug}}">
                 <div class="item__img">
                     <img src="{{$url}}" alt="">
                 </div>
             </a>
             <h4 >
-                <a class="sidebar__title" href="/blog/show/{{$post[$i]->id}}">{{$post[$i]->title}}</a>
+                <a class="sidebar__title" href="/blog/show/{{$post[$i]->slug}}">{{$post[$i]->title}}</a>
             </h4>
     </div>
     @endfor
@@ -205,7 +205,7 @@
     }
 
 
-    $(".blog-card__title").each(function(){if ($(this).text().length > 80) {$(this).text($(this).text().substr(0, 80));$(this).append('...');}});
+    $(".blog-card__title").each(function(){if ($(this).text().length > 80) {$(this).text($(this).text().substr(0, 75));$(this).append('...');}});
     $(".sidebar__title").each(function(){if ($(this).text().length > 80) {$(this).text($(this).text().substr(0, 80));$(this).append('...');}});
     
 
